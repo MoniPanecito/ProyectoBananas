@@ -2,7 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import Chart from 'chart.js/auto'
 
-const API_URL = 'http://192.168.100.6:8000'
+const API_URL = 'https://proyectobananas.onrender.com'
 
 // Trazos de iconos estilo Material (un solo color via currentColor)
 const ICONOS = {
@@ -105,7 +105,7 @@ const procesarFoto = async (event) => {
   // Evita que la UI se quede "colgada" para siempre si el backend no responde
   // (ej. firewall bloqueando el puerto, uvicorn caído o escuchando solo en localhost).
   const controlador = new AbortController()
-  const timeoutId = setTimeout(() => controlador.abort(), 20000)
+  const timeoutId = setTimeout(() => controlador.abort(), 65000)
 
   try {
     const res = await fetch(`${API_URL}/analizar`, {
